@@ -67,7 +67,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "this" {
 # -----------------------------------------------------------------------------
 
 resource "aws_cloudfront_origin_access_control" "this" {
-  name                              = "${local.name_prefix}-oac"
+  name                              = "${local.name_prefix}-oaceduroll"
   description                       = "OAC for ${local.name_prefix} frontend bucket"
   origin_access_control_origin_type = "s3"
   signing_behavior                  = "always"
