@@ -15,7 +15,7 @@ pipeline {
 
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/Jayeshvinod/eduroll-project', branch: 'main'
+                git url: 'https://github.com/Jayeshvinod/eduroll-projectg', branch: 'main'
             }
         }
 
