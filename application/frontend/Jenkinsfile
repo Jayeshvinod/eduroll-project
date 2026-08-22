@@ -14,41 +14,41 @@ pipeline {
     parameters {
         string(
             name: 'S3_BUCKET',
-            defaultValue: 'cdec-alpha-dev-frontend',
-            description: 'S3 bucket name for the frontend (e.g. cdec-frontend-dev-frontend)'
+            defaultValue: 'cdec-alpha-dev-frontend-eduroll',
+            description: 'S3 bucket name for the frontend (e.g. cdec-frontend-dev-frontend-eduroll)'
         )
         string(
             name: 'CLOUDFRONT_DISTRIBUTION_ID',
-            defaultValue: 'E2T929LQJJ7AIS',
-            description: 'CloudFront distribution ID (e.g. E1234567890ABC)'
+            defaultValue: 'E1ZPYX3JCY58GY',
+            description: 'CloudFront distribution ID (e.g.E1ZPYX3JCY58GY)'
         )
         string(
             name: 'VITE_AUTH_API',
-            defaultValue: 'https://api.thecloudnine.in/api/auth',
+            defaultValue: 'https://api.thedevopsmaster.online/api/auth',
             description: 'Auth API URL baked into the build'
         )
         string(
             name: 'VITE_COURSE_API',
-            defaultValue: 'https://api.thecloudnine.in/api/courses',
+            defaultValue: 'https://api.thedevopsmaster.online/api/courses',
             description: 'Course API URL baked into the build'
         )
         string(
             name: 'VITE_ENROLL_API',
-            defaultValue: 'https://api.thecloudnine.in/api/enroll',
+            defaultValue: 'https://api.thedevopsmaster.online/api/enroll',
             description: 'Enrollment API URL baked into the build'
         )
     }
 
     environment {
         APP_DIR = 'application/frontend'
-        AWS_DEFAULT_REGION = 'eu-west-1'
+        AWS_DEFAULT_REGION = 'eu-north-1'
     }
 
     stages {
 
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/atulyw/cdec-alpha-app.git', branch: 'main'
+                git url: 'https://github.com/Jayeshvinod/eduroll-project', branch: 'main'
             }
         }
 
@@ -77,7 +77,7 @@ pipeline {
             steps {
                 withCredentials([[
                     $class: 'AmazonWebServicesCredentialsBinding',
-                    credentialsId: 'aws-frontend-terraform',
+                    credentialsId: 'jayesh',
                     accessKeyVariable: 'AWS_ACCESS_KEY_ID',
                     secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
                 ]]) {
@@ -95,7 +95,7 @@ pipeline {
             steps {
                 withCredentials([[
                     $class: 'AmazonWebServicesCredentialsBinding',
-                    credentialsId: 'aws-frontend-terraform',
+                    credentialsId: 'jayesh',
                     accessKeyVariable: 'AWS_ACCESS_KEY_ID',
                     secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
                 ]]) {
