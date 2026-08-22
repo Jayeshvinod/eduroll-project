@@ -9,7 +9,7 @@ check "acm_certificate_with_aliases" {
 
 locals {
   name_prefix             = var.name_prefix != null ? var.name_prefix : "${var.application}-${var.environment}"
-  bucket_name             = coalesce(var.bucket_name, "${local.name_prefix}-frontend")
+  bucket_name             = coalesce(var.bucket_name, "${local.name_prefix}-frontend-eduroll")
   default_cache_policy_id = "658327ea-f89d-4fab-a63d-7e88639e58f6"
   base_tags = merge(
     {
@@ -67,7 +67,7 @@ resource "aws_s3_bucket_server_side_encryption_configuration" "this" {
 # -----------------------------------------------------------------------------
 
 resource "aws_cloudfront_origin_access_control" "this" {
-  name                              = "${local.name_prefix}-oaceduroll"
+  name                              = "${local.name_prefix}-oac-eduroll"
   description                       = "OAC for ${local.name_prefix} frontend bucket"
   origin_access_control_origin_type = "s3"
   signing_behavior                  = "always"
