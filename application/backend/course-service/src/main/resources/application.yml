@@ -6,7 +6,7 @@ spring:
     name: course-service
   data:
     mongodb:
-      uri: mongodb+srv://jayeshmanohare2003_db_user:oknWcHhfJkfnwBhk@clusterdatabase.xtrzpnr.mongodb.net/Clusterdatabase?appName=Clusterdatabase
+      uri: ${MONGO_URI:mongodb+srv://jayeshmanohare2003_db_user:pJ7WnxtXzl27mbJJ@clusterjayesh.8gttef3.mongodb.net/?appName=Clusterjayesh
 
 logging:
   level:
