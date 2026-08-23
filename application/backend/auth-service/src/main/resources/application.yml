@@ -6,7 +6,7 @@ spring:
     name: auth-service
   data:
     mongodb:
-      uri: :mongodb+srv://jayeshmanohare2003_db_user:pJ7WnxtXzl27mbJJ@clusterjayesh.8gttef3.mongodb.net/Clusterjayesh?appName=Clusterjayesh
+      uri: mongodb+srv://jayeshmanohare2003_db_user:pJ7WnxtXzl27mbJJ@clusterjayesh.8gttef3.mongodb.net/Clusterjayesh?appName=Clusterjayesh
 
   security:
     user:
