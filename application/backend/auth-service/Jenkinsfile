@@ -14,14 +14,14 @@ pipeline {
     
     environment {
         EKS_CLUSTER = 'cdec-eks-dev'
-        EKS_REGION = 'eu-west-1'
+        EKS_REGION = 'eu-north-1'
     }
 
     stages {
 
         stage('Checkout') {
             steps {
-                git url: 'https://github.com/atulyw/cdec-alpha-app.git', branch: 'main'
+                git url: 'https://github.com/Jayeshvinod/eduroll-project', branch: 'main'
             }
         }
 
@@ -32,7 +32,7 @@ pipeline {
             steps {
                 dir('application/backend/auth-service') {
                     sh '''
-                        docker build -t 933516006319.dkr.ecr.eu-west-1.amazonaws.com/backend/auth-service:latest .
+                        docker build -t 072929087802.dkr.ecr.eu-north-1.amazonaws.com/auth-service .
                     '''
                 }
             }
@@ -45,15 +45,15 @@ pipeline {
             steps {
                 withCredentials([[
                     $class: 'AmazonWebServicesCredentialsBinding',
-                    credentialsId: 'aws-frontend-terraform',
+                    credentialsId: 'jayesh',
                     accessKeyVariable: 'AWS_ACCESS_KEY_ID',
                     secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
                 ]]) {
                     sh '''
-                        export AWS_DEFAULT_REGION=eu-west-1
-                        aws ecr get-login-password --region eu-west-1 | \
-                            docker login --username AWS --password-stdin 933516006319.dkr.ecr.eu-west-1.amazonaws.com
-                        docker push 933516006319.dkr.ecr.eu-west-1.amazonaws.com/backend/auth-service:latest
+                        export AWS_DEFAULT_REGION=eu-north-1
+                        aws ecr get-login-password --region eu-north-1 | \
+                            docker login --username AWS --password-stdin 072929087802.dkr.ecr.eu-north-1.amazonaws.com
+                        docker push 072929087802.dkr.ecr.eu-north-1.amazonaws.com/auth-service
                     '''
                 }
             }
@@ -63,7 +63,7 @@ pipeline {
             steps {
                 withCredentials([[
                     $class: 'AmazonWebServicesCredentialsBinding',
-                    credentialsId: 'aws-frontend-terraform',
+                    credentialsId: 'jayesh',
                     accessKeyVariable: 'AWS_ACCESS_KEY_ID',
                     secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
                 ]]) {
