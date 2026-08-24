@@ -35,5 +35,5 @@ additional_tags = {
 # ALB Ingress — AWS Load Balancer Controller + API ingress
 enable_alb_ingress  = true
 ingress_host        = "api.thedevopsmaster.online"
-acm_certificate_arn = "arn:aws:acm:us-east-1:072929087802:certificate/aebbf19e-0f41-4836-844b-7a17fbf20ad6"
+acm_certificate_arn = "arn:aws:acm:eu-north-1:072929087802:certificate/74504531-09de-4af5-b8f6-498a973c38ff"
 alb_name            = "cdec-alpha-alb"
